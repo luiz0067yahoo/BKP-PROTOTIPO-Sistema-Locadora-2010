@@ -1,0 +1,1 @@
+{var dz=document;dz.writeln("<a href=\"http://clk.atdmt.com/AVE/go/vlclcdfa0010000028ave/direct/01/\" target=\"_blank\"><img width=728 height=90 src=\"http://cdn.fastclick.net/fastclick.net/adcouncil/new_time_to_talk_612_728x90.gif\" border=0></a>");}

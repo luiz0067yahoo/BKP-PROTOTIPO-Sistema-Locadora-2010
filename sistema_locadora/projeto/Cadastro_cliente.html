@@ -1,0 +1,117 @@
+<html>
+	<head>
+		<script type="text/javascript">
+			//alert("oi")
+		</script>
+		<style type="text/css">
+			/*@import url("estilo.css");*/
+		</style>
+		<title>Cadastro cliente</title>
+	</head>
+	<body>
+		<!--Inicio Formulario-->
+		<!--<form ENCTYPE = "multipart/form-data" action="cadastro_cliente.jsp" method="post">-->
+		<form ENCTYPE = "multipart/form-data" action="cadastro_cliente.jsp" method="post">
+			<fieldset>
+				<legend style="color:#000000;">Dados Pessoais</legend>
+				<table cellspacing="0" cellpadding="0" border="0" hspace="0" vspace="0">
+					<tr>
+						<td>Codigo</td>
+						<td>&nbsp : &nbsp </td>
+						<td><input type="text" name="codigo" style="text-align:right;width:75px;"></td>
+						<td>&nbsp &nbsp </td>						
+					</tr>	
+					<tr>
+						<td colspan="4"><label id="codigo" style="color:#FF0000"></label></td>					
+					</tr>
+					<tr>
+						<td>Nome</td>
+						<td>&nbsp : &nbsp </td>
+						<td><input type="text" name="nome" style="width:200px;"></td>
+						<td>&nbsp &nbsp </td>
+						<td colspan="4" align="center">
+							<fieldset >
+								<legend style="color:#000000;" >Sexo:&nbsp </legend>&nbsp
+								&nbsp<input type="radio" name="sexo" value="F" style="text-align:center">Feminino&nbsp
+								&nbsp<input type="radio" name="sexo" value="M">Maculino&nbsp
+							</fieldset>
+						</td>												
+					</tr>	
+					<tr>
+						<td colspan="4"><label id="nome" style="color:#FF0000"></label></td>					
+						<td colspan="4"><label id="sexo" style="color:#FF0000"></label></td>					
+					</tr>					
+					<tr>	
+						<td>Data Nascimento</td>
+						<td>&nbsp : &nbsp </td>
+						<td><input type="text" name="data_nascimento" style="width:75px;"></td>
+						<td>&nbsp &nbsp </td>
+											
+					</tr>					
+					<tr>
+						<td colspan="4"><label id="data_nascimento" style="color:#FF0000"></label></td>										
+					</tr>
+					<tr>
+						<td>CPF</td>
+						<td>&nbsp : &nbsp </td>
+						<td><input type="text" name="cpf" style="text-align:right;width:100px;"></td>
+						<td>&nbsp &nbsp </td>
+						<td>RG</td>
+						<td>&nbsp : &nbsp </td>
+						<td><input type="text" name="rg" style="width:200px;"></td>
+						<td>&nbsp &nbsp </td>						
+					</tr>	
+					<tr>
+						<td colspan="4"><label id="cpf" style="color:#FF0000"></label></td>	
+						<td colspan="4"><label id="rg" style="color:#FF0000"></label></td>						
+					</tr>
+					<tr>	
+						<td>Nome pai</td>
+						<td>&nbsp : &nbsp </td>
+						<td><input type="text" name="nome_pai" style="width:200px;"></td>
+						<td>&nbsp &nbsp </td>
+						<td>Nome mãe</td>
+						<td>&nbsp : &nbsp </td>
+						<td><input type="text" name="nome_mae" style="width:200px;"></td>
+						<td>&nbsp &nbsp </td>					
+					</tr>					
+					<tr>
+						<td colspan="4"><label id="nome_pai" style="color:#FF0000"></label></td>					
+						<td colspan="4"><label id="nome_mae" style="color:#FF0000"></label></td>					
+					</tr>
+					<tr>
+						<td>Conjuge</td>
+						<td>&nbsp : &nbsp </td>
+						<td><input type="text" name="conjuge" style="width:200px;"></td>
+						<td>&nbsp &nbsp </td>						
+					</tr>	
+					<tr>
+						<td colspan="4"><label id="conjuge" style="color:#FF0000"></label></td>					
+					</tr>
+				</table>
+			</fieldset>
+			<!------------------------------------------------------------------------------------------------------------------------->
+			<fieldset>
+				<legend style="color:#000000;">Endereço</legend>
+				<table cellspacing="0" cellpadding="0" border="0" hspace="0" vspace="0">
+					<tr>
+						<td>Rua</td>
+						<td>&nbsp : &nbsp </td>
+						<td><input type="text" name="rua" style="width:200px;"></td>
+						<td>&nbsp &nbsp </td>
+						<td>Numero</td>
+						<td>&nbsp : &nbsp </td>
+						<td><input type="text" name="nome" style="text-align:right;width:75px;"></td>
+						<td>&nbsp &nbsp </td>						
+					</tr>	
+					<tr>
+						<td colspan="4"><label id="rua" style="color:#FF0000"></label></td>
+						<td colspan="4"><label id="numero" style="color:#FF0000"></label></td>					
+					</tr>
+					
+				</table>
+			</fieldset>
+		</form>
+		<!--Fim Formulario-->
+	</body>
+</html>

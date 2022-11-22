@@ -1,0 +1,117 @@
+<?php	
+	include('conecta.php');
+?>
+<html>
+	<head>
+		<script type="text/javascript">
+			//alert("oi")
+		</script>
+		<style type="text/css">
+			/*@import url("estilo.css");*/
+		</style>
+		<title>Cadastro Categoria</title>
+	</head>
+	<body>
+		<!--Inicio Formulario-->
+		<!--<form ENCTYPE = "multipart/form-data" action="cadastro_cliente.jsp" method="post">-->
+		<form   method="post">
+			<fieldset>
+				<legend style="color:#000000;">Categoria</legend>
+				
+				<table cellspacing="0" cellpadding="0" border="0" hspace="0" vspace="0">
+					<?php	
+						$row=null;	
+						$result=null;					
+						if (($_GET["id_categoria"]!=null)){
+							$sql    = "SELECT * FROM categorias where (id_categoria=".$_GET["id_categoria"].");";
+							$result=mysql_query($sql, $link);
+							if ($result!=null)
+								$row = mysql_fetch_assoc($result);	
+						}
+					?>
+					<tr>
+						<td>id</td>
+						<td>&nbsp : &nbsp </td>
+						<td><input type="text" name="id_categoria" style="text-align:right;width:75px;" value="<?php if ($result!=null) echo $row["id_categoria"]?>"></td>
+						<td>&nbsp &nbsp </td>						
+					</tr>	
+					<tr>
+						<td colspan="4"><label id="id_categoria" style="color:#FF0000" ></label></td>					
+					</tr>
+					<tr>
+						<td>Nome</td>
+						<td>&nbsp : &nbsp </td>
+						<td><input type="text" name="nome" style="width:200px;" value="<?php if ($result!=null) echo $row["nome"]?>"></td>
+						<td>&nbsp &nbsp </td>												
+					</tr>
+					<tr>
+						<td colspan="4"><label id="nome" style="color:#FF0000" ></label></td>					
+					</tr>
+					<?php 				
+						if ($result!=null)
+							mysql_free_result($result);		
+					?>
+					<tr>
+						<td colspan="4">
+							<input type="submit" name="acao" value="inserir">
+							<input type="submit" name="acao" value="alterar">
+							<input type="submit" name="acao" value="excluir">	
+							<input type="button"  value="limpar" onclick="self.location.href='?id_categoria='">
+						</td>
+					</tr>
+					<?php
+						if( $_POST['acao']=='excluir'){				
+							$sql    = 'delete  FROM categorias where id_categoria='.$_POST["id_categoria"];
+							//echo $sql;
+							mysql_query($sql, $link);				
+							mysql_query('commit', $link);				
+						}
+						else if( $_POST['acao']=='alterar'){
+							$sql    = "update categorias set nome='".$_POST["nome"]."' where (id_categoria=".$_POST["id_categoria"].");";
+							//echo $sql;
+							mysql_query($sql, $link);							
+							mysql_query('commit', $link);				
+						}
+						else if( $_POST['acao']=='inserir'){
+							$sql    = "insert into categorias (nome) values ('".$_POST["nome"]."');";
+							//echo $sql;
+							mysql_query($sql, $link);
+							mysql_query('commit', $link);				
+						}			
+					?>						
+				</table>
+			</fieldset>			
+		</form>
+		<!--FIM Formulario-->
+			<table cellspacing="0" cellpadding="0" border="1" hspace="0" vspace="0">
+				<tr>					
+					<td align="center"n>&nbsp id &nbsp </td>												
+					<td align="center"n>&nbsp nome &nbsp </td>												
+				</tr>	
+		<?php			
+			/*if( $_POST['acao']=='buscar')*/
+			$sql    = 'SELECT * FROM categorias order by nome asc;';
+			$result = mysql_query($sql, $link);
+			if (!$result) {
+				echo "Erro do banco de dados, não foi possível consultar o banco de dados\n";
+				echo 'Erro MySQL: ' . mysql_error();
+				exit;
+			}
+			while ($row = mysql_fetch_assoc($result)) {
+		?> 
+			
+				<tr>					
+					<td align="right"n><a href="?id_categoria=<?php echo $row['id_categoria'];?>"><?php echo $row['id_categoria'];?>&nbsp </a></td>												
+					<td align="left"n><?php echo $row['nome'];?>&nbsp </td>												
+				</tr>			
+		<?php 				
+			}
+			mysql_free_result($result);		
+		?>
+		</table>		
+		<!--Fim Formulario-->
+	</body>
+</html>
+<?
+	mysql_close($link);
+?>
